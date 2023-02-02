@@ -1,0 +1,209 @@
+<!-- 
+          _____                    _____                _____                    _____          
+         /\    \                  /\    \              /\    \                  /\    \         
+        /::\    \                /::\    \            /::\    \                /::\    \        
+        \:::\    \              /::::\    \           \:::\    \              /::::\    \       
+         \:::\    \            /::::::\    \           \:::\    \            /::::::\    \      
+          \:::\    \          /:::/\:::\    \           \:::\    \          /:::/\:::\    \     
+           \:::\    \        /:::/__\:::\    \           \:::\    \        /:::/__\:::\    \    
+           /::::\    \      /::::\   \:::\    \          /::::\    \      /::::\   \:::\    \   
+  _____   /::::::\    \    /::::::\   \:::\    \        /::::::\    \    /::::::\   \:::\    \  
+ /\    \ /:::/\:::\    \  /:::/\:::\   \:::\____\      /:::/\:::\    \  /:::/\:::\   \:::\____\ 
+/::\    /:::/  \:::\____\/:::/  \:::\   \:::|    |    /:::/  \:::\____\/:::/  \:::\   \:::|    |
+\:::\  /:::/    \::/    /\::/    \:::\  /:::|____|   /:::/    \::/    /\::/   |::::\  /:::|____|
+ \:::\/:::/    / \/____/  \/_____/\:::\/:::/    /   /:::/    / \/____/  \/____|:::::\/:::/    / 
+  \::::::/    /                    \::::::/    /   /:::/    /                 |:::::::::/    /  
+   \::::/    /                      \::::/    /   /:::/    /                  |::|\::::/    /   
+    \::/    /                        \::/____/    \::/    /                   |::| \::/____/    
+     \/____/                          ~~           \/____/                    |::|  ~|          
+                                                                              |::|   |          
+                                                                              \::|   |          
+                                                                               \:|   |          
+                                                                                \|___|          
+                                                                                                
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>TrackMania Blitz</title>
+	<meta name="description" content="Take on the fastest drivers in the world for the ultimate speed challenge!">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="renderer" content="webkit">
+	<meta name="force-rendering" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="full-screen" content="yes">
+	<meta name="x5-fullscreen" content="true">
+	<meta name="360-fullscreen" content="true">
+	<meta name="screen-orientation" content="portrait">
+	<meta name="x5-orientation" content="portrait">
+	<meta name="x5-page-mode" content="app">
+	<link rel="stylesheet" type="text/css" href="css/style.css" /> </head>
+
+<body style="background-color:black;">
+	<canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+	<div id="splash"> <img id="game-logo" src="./tmr_logo.52fd1.png"></img> <img id="cocos-logo" src="./splash.f15dc.png"></img>
+		<div class="sk-circle">
+			<div class="sk-circle1 sk-child"></div>
+			<div class="sk-circle2 sk-child"></div>
+			<div class="sk-circle3 sk-child"></div>
+			<div class="sk-circle4 sk-child"></div>
+			<div class="sk-circle5 sk-child"></div>
+			<div class="sk-circle6 sk-child"></div>
+			<div class="sk-circle7 sk-child"></div>
+			<div class="sk-circle8 sk-child"></div>
+			<div class="sk-circle9 sk-child"></div>
+			<div class="sk-circle10 sk-child"></div>
+			<div class="sk-circle11 sk-child"></div>
+			<div class="sk-circle12 sk-child"></div>
+		</div>
+	</div>
+	<script src="src/settings.js" charset="utf-8"></script>
+	<div id="canvas-ad" style="top: 0px; height:90px; z-index: 1;"></div>
+	<script src="main.js" charset="utf-8"></script>
+	<script type="text/javascript">
+	function getUrlParameter(name) {
+		name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+		var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+		var results = regex.exec(location.search);
+		return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+	};
+	</script>
+	<script type="text/javascript">
+	window.onload = function() {
+		console.log('window.buildVersion', window.buildVersion);
+	};
+	window.trackingFunnelEvents = [];
+	(function() {
+		// <!--#IMPORT [firebase_credentials] -->
+		var firebaseCredentials = {
+			apiKey: "AIzaSyCQEcF4j4GdKX0D7ivTlE0T5Nqyg0vQcOY",
+			authDomain: "rabbidswildrace-uat.firebaseapp.com",
+			projectId: "rabbidswildrace-uat",
+			storageBucket: "rabbidswildrace-uat.appspot.com",
+			messagingSenderId: "1092579702964",
+			appId: "1:1092579702964:web:a0955b6e53d2768317bfe1",
+			measurementId: "G-3J7RQMYZ41"
+		};
+		// <!--#IMPORT [script_init] -->
+		var origin = null;
+		if(window.loginData && window.loginData.origin) {
+			origin = window.loginData.origin;
+		} else {
+			origin = getUrlParameter("origin");
+		}
+		if(!origin) {
+			if(window.location.href.includes('nano.ubisoft.com')) {
+				origin = "Nano";
+			} else {
+				origin = "unknown";
+			}
+		}
+		const saveCheckerKey = 'NGC_LoadFunnelTime';
+		var checkerTime = localStorage.getItem(saveCheckerKey) || 0;
+		checkerTime++;
+		checkerTime = Math.min(checkerTime, 3)
+		localStorage.setItem(saveCheckerKey, checkerTime);
+		window.funnel = {
+			checker: checkerTime === 1 ? 'First' : 'Repeat',
+			startTime: Date.now()
+		}
+		window.versionInfo = {
+			gameVersion: "20221115.88.66.Imadejptr",
+			deploymentEnvironment: "Live"
+		}
+		if(window.firebase) {
+			var firebaseInfo = {};
+			// NGC_LoadFunnelTime key for NGC, game team should modify to replace NGC with your gamecode
+			firebaseInfo.firebaseApp = firebase.initializeApp(firebaseCredentials);
+			if(!firebaseInfo.firebaseApp) {
+				console.error("Failed to initialize Firebase");
+			}
+			var adBlockEnabled = false;
+			var testAd = document.createElement('div');
+			testAd.innerHTML = '&nbsp;';
+			testAd.className = 'adsbox';
+			document.body.appendChild(testAd);
+			window.setTimeout(function() {
+				if(testAd.offsetHeight === 0) {
+					adBlockEnabled = true;
+					window.isAdsBlocked = adBlockEnabled;
+				}
+				testAd.remove();
+				console.log('AdBlock Enabled? ', adBlockEnabled)
+			}, 100);
+			window.isAdsBlocked = adBlockEnabled;
+			firebaseInfo.firebaseAnalytics = firebase.analytics();
+			if(!firebaseInfo.firebaseAnalytics) {
+				console.error("Failed to initialize firebase analytics");
+			} else {
+				let event = {};
+				event.name = 'loading_gameStart';
+				event.param = {
+					"acquisitionChannel": origin,
+					"gameVersion": window.versionInfo.gameVersion,
+					"deploymentEnvironment": window.versionInfo.deploymentEnvironment,
+					"checker": window.funnel.checker,
+					"clientTimestamp": Date.now()
+				}
+				trackingFunnelEvents.push(event);
+			}
+			firebaseInfo.firebasePerformance = firebase.performance();
+			if(!firebaseInfo.firebasePerformance) {
+				console.error("Failed to init firebase Performance");
+			}
+			firebaseInfo.firebaseRemoteConfig = firebase.remoteConfig(this.firebaseApp);
+			if(!firebaseInfo.firebaseRemoteConfig) {
+				console.error("Failed to initialize firebase remoteconfig");
+				return false;
+			} else {
+				firebaseInfo.firebaseRemoteConfig.settings = {
+					minimumFetchIntervalMillis: 3600000,
+					fetchTimeoutMillis: 60000
+				}
+			}
+			window.firebaseInfo = firebaseInfo;
+			window.trackingFunnelEvents = trackingFunnelEvents;
+		}
+		var debug = window._CCSettings.debug;
+		var splash = document.getElementById('splash');
+
+		function loadScript(moduleName, cb) {
+			function scriptLoaded() {
+				document.body.removeChild(domScript);
+				domScript.removeEventListener('load', scriptLoaded, false);
+				cb && cb();
+			};
+			var domScript = document.createElement('script');
+			domScript.async = true;
+			domScript.src = moduleName;
+			domScript.addEventListener('load', scriptLoaded, false);
+			document.body.appendChild(domScript);
+		}
+		loadScript(debug ? 'cocos2d-js.js' : 'cocos2d-js-min.19d94.js', function() {
+			if(CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
+				loadScript(debug ? 'physics.js' : 'physics-min.js', winboot);
+			} else {
+				let event = {};
+				event.name = 'loading_cocosLoaded';
+				event.param = {
+					"checker": window.funnel.checker,
+					"totalSec": Date.now() - window.funnel.startTime,
+					"clientTimestamp": Date.now(),
+					"gameVersion": window.versionInfo.gameVersion,
+					"deploymentEnvironment": window.versionInfo.deploymentEnvironment
+				}
+				if(window.trackingFunnelEvents) window.trackingFunnelEvents.push(event);
+				window.boot();
+			}
+		});
+	})();
+	</script>
+</body>
+
+</html>

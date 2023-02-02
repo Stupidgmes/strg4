@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>TrackMania Blitz</title>
+    <meta name="description" content="Take on the fastest drivers in the world for the ultimate speed challenge!" />
+
+    <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+    <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1" />
+
+    <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- force webkit on 360 -->
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <!-- force edge on IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- force full screen on some browser -->
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+
+    <!-- force screen orientation on some browser -->
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-orientation" content="portrait">
+
+    <!--fix fireball/issues/3568 -->
+    <!--<meta name="browsermode" content="application">-->
+    <meta name="x5-page-mode" content="app">
+
+    <!--<link rel="apple-touch-icon" href=".png" />-->
+    <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="icon" href="favicon.52fd1.png" />
+    <!--#IMPORT [html_header] -->
+    <script async data-ad-client="ca-pub-9638686360736223" data-ad-channel="4682884490"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+        </script>
+    <script src="https://imasdk.googleapis.com/js/sdkloader/ima3.js">
+    </script>
+    <script>
+        window.adsbygoogle = window.adsbygoogle || [];
+        const adBreak = adConfig = function (o) { adsbygoogle.push(o); }
+    </script>
+
+    <script src="https://ubistatic2-a.akamaihd.net/uplay-connect/v3/prod/default/sdk/connectSdkPublic.js"></script>
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta property="og:url" content="https://nano.ubisoft.com/?gameID=TMB" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="TrackMania Blitz" />
+    <meta property="og:description"
+        content="Take on the fastest drivers in the world for the ultimate speed challenge!" />
+    <meta property="og:image" content="/TrackManiaBlitz/nano_ico_144.png" />
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="144">
+    <meta property="og:image:height" content="144">
+    <link rel="apple-touch-icon" href="/TrackManiaBlitz/apple-touch-icon.png">
+    <link rel="apple-touch-startup-image" href="/TrackManiaBlitz/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+
+</head>
+
+<body style="background-color:black;">
+    <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+    <div id="splash">
+        <img id="game-logo" src="./tmr_logo.52fd1.png"></img>
+        <img id="cocos-logo" src="./splash.f15dc.png"></img>
+        <div class="sk-circle">
+            <div class="sk-circle1 sk-child"></div>
+            <div class="sk-circle2 sk-child"></div>
+            <div class="sk-circle3 sk-child"></div>
+            <div class="sk-circle4 sk-child"></div>
+            <div class="sk-circle5 sk-child"></div>
+            <div class="sk-circle6 sk-child"></div>
+            <div class="sk-circle7 sk-child"></div>
+            <div class="sk-circle8 sk-child"></div>
+            <div class="sk-circle9 sk-child"></div>
+            <div class="sk-circle10 sk-child"></div>
+            <div class="sk-circle11 sk-child"></div>
+            <div class="sk-circle12 sk-child"></div>
+        </div>
+    </div>
+
+    <script src="src/settings.js" charset="utf-8"></script>
+
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!--#IMPORT [html_body] -->
+    <style>
+        .RWR_TOP_BANNER {
+            width: 320px;
+            height: 100px;
+        }
+
+        @media(min-width: 500px) {
+            .RWR_TOP_BANNER {
+                width: 468px;
+                height: 60px;
+            }
+        }
+
+        @media(min-width: 800px) {
+            .RWR_TOP_BANNER {
+                width: 728px;
+                height: 90px;
+            }
+        }
+    </style>
+    <!-- RWR_TOP_BANNER -->
+    <ins class="adsbygoogle RWR_TOP_BANNER"
+        style="display:inline-block;width:728px;height:90px;margin-left:auto;margin-right:auto;z-index:-1;"
+        data-ad-client="ca-pub-9638686360736223" data-ad-slot="6010270420" data-ad-test='@googleDataAdTest'></ins>
+    <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div id="adContainer"></div>
+    <div class="hide" id="uplay-iframe-container" onClick="this.classList.add('hide')" ;>
+        <iframe id="uplay-iframe" src="" width=480 height=720></iframe>
+    </div>
+    <div style="z-index:-1;" class="fb-container">
+        <iframe id="fbPage-iframe" src="" width="340" height="500" style="border:none;overflow:hidden" scrolling="no"
+            frameborder="0" allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+    </div>
+
+    <!--#IMPORT [firebase_script] -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-performance.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-remote-config.js"></script>
+    <script src="https://ubistatic2-a.akamaihd.net/uplay-connect/v3/prod/default/sdk/connectSdkPublic.js"
+        type="text/javascript"></script>
+
+    <!--#IMPORT [gdpr_script] -->
+    <link rel="stylesheet"
+        href="https://nanoservices-storage-prod.s3.ap-south-1.amazonaws.com/gpdr/style.css?ts=1602574753">
+    <script async="" type="text/javascript"
+        src="https://ubistatic-a.akamaihd.net/0106/prod/global/tracking/analyticssdk.js"></script>
+    <script src="https://nanoservices-storage-prod.s3.ap-south-1.amazonaws.com/gpdr/cookies_config.js"></script>
+
+    <script src="https://unpkg.com/vconsole/dist/vconsole.min.js"></script>
+    <script src="main.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            console.log('window.buildVersion', window.buildVersion);
+        };
+        window.trackingFunnelEvents = [];
+
+        (function () {
+            // <!--#IMPORT [firebase_credentials] -->
+            var firebaseCredentials = {
+                "apiKey": "AIzaSyAZrsD1NoRK0xGwKg82aEk8eaN4hxcmcFw",
+                "authDomain": "trackmania-blitz.firebaseapp.com",
+                "databaseURL": "https://trackmania-blitz.firebaseio.com",
+                "projectId": "trackmania-blitz",
+                "storageBucket": "trackmania-blitz.appspot.com",
+                "messagingSenderId": "71281577205",
+                "appId": "1:71281577205:web:9127bcf604c2b3f06409bc",
+                "measurementId": "G-80NCMPDYS1"
+            };
+
+            // <!--#IMPORT [script_init] -->
+
+
+            var origin = null;
+
+            if (window.loginData && window.loginData.origin) {
+                origin = window.loginData.origin;
+            }
+            else {
+                origin = getUrlParameter("origin");
+            }
+
+            if (!origin) {
+                if (window.location.href.includes('nano.ubisoft.com')) {
+                    origin = "Nano";
+                } else {
+                    origin = "unknown";
+                }
+            }
+
+            const saveCheckerKey = 'NGC_LoadFunnelTime';
+
+            var checkerTime = localStorage.getItem(saveCheckerKey) || 0;
+            checkerTime++;
+            checkerTime = Math.min(checkerTime, 3)
+            localStorage.setItem(saveCheckerKey, checkerTime);
+            window.funnel = {
+                checker: checkerTime === 1 ? 'First' : 'Repeat',
+                startTime: Date.now()
+            }
+
+            window.versionInfo = {
+                gameVersion: "20211216.83.62.Nano",
+                deploymentEnvironment: "Live"
+            }
+
+            if (window.firebase) {
+                var firebaseInfo = {};
+                // NGC_LoadFunnelTime key for NGC, game team should modify to replace NGC with your gamecode
+
+
+                firebaseInfo.firebaseApp = firebase.initializeApp(firebaseCredentials);
+                if (!firebaseInfo.firebaseApp) {
+                    console.error("Failed to initialize Firebase");
+                }
+
+
+
+                var adBlockEnabled = false;
+                var testAd = document.createElement('div');
+                testAd.innerHTML = '&nbsp;';
+                testAd.className = 'adsbox';
+                document.body.appendChild(testAd);
+                window.setTimeout(function () {
+                    if (testAd.offsetHeight === 0) {
+                        adBlockEnabled = true;
+                        window.isAdsBlocked = adBlockEnabled;
+                    }
+                    testAd.remove();
+                    console.log('AdBlock Enabled? ', adBlockEnabled)
+                }, 100);
+
+                window.isAdsBlocked = adBlockEnabled;
+
+                firebaseInfo.firebaseAnalytics = firebase.analytics();
+                if (!firebaseInfo.firebaseAnalytics) {
+                    console.error("Failed to initialize firebase analytics");
+                }
+                else {
+                    let event = {};
+                    event.name = 'loading_gameStart';
+                    event.param = {
+                        "acquisitionChannel": origin,
+                        "gameVersion": window.versionInfo.gameVersion,
+                        "deploymentEnvironment": window.versionInfo.deploymentEnvironment,
+                        "checker": window.funnel.checker,
+                        "clientTimestamp": Date.now()
+                    }
+                    trackingFunnelEvents.push(event);
+
+                }
+
+                firebaseInfo.firebasePerformance = firebase.performance();
+                if (!firebaseInfo.firebasePerformance) {
+                    console.error("Failed to init firebase Performance");
+                }
+
+                firebaseInfo.firebaseRemoteConfig = firebase.remoteConfig(this.firebaseApp);
+                if (!firebaseInfo.firebaseRemoteConfig) {
+                    console.error("Failed to initialize firebase remoteconfig");
+                    return false;
+                } else {
+                    firebaseInfo.firebaseRemoteConfig.settings = {
+                        minimumFetchIntervalMillis: 3600000,
+                        fetchTimeoutMillis: 60000
+                    }
+                }
+
+                window.firebaseInfo = firebaseInfo;
+                window.trackingFunnelEvents = trackingFunnelEvents;
+
+            }
+
+            var debug = window._CCSettings.debug;
+            var splash = document.getElementById('splash');
+
+            function loadScript(moduleName, cb) {
+                function scriptLoaded() {
+                    document.body.removeChild(domScript);
+                    domScript.removeEventListener('load', scriptLoaded, false);
+                    cb && cb();
+                };
+                var domScript = document.createElement('script');
+                domScript.async = true;
+                domScript.src = moduleName;
+                domScript.addEventListener('load', scriptLoaded, false);
+
+                document.body.appendChild(domScript);
+            }
+
+            loadScript(debug ? 'cocos2d-js.js' : 'cocos2d-js-min.19d94.js', function () {
+                if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
+                    loadScript(debug ? 'physics.js' : 'physics-min.js', winboot);
+                } else {
+                    let event = {};
+                    event.name = 'loading_cocosLoaded';
+                    event.param = {
+                        "checker": window.funnel.checker,
+                        "totalSec": Date.now() - window.funnel.startTime,
+                        "clientTimestamp": Date.now(),
+                        "gameVersion": window.versionInfo.gameVersion,
+                        "deploymentEnvironment": window.versionInfo.deploymentEnvironment
+                    }
+                    if (window.trackingFunnelEvents)
+                        window.trackingFunnelEvents.push(event);
+                    window.boot();
+                }
+            });
+
+            // <!--#IMPORT [script_add_function] -->
+
+
+        })();
+    </script>
+    //
+    <!--#IMPORT [gdpr_banner] -->
+    <script src="https://nanoservices-storage-prod.s3.ap-south-1.amazonaws.com/gpdr/game_cookies_banner.js"></script>
+</body>
+
+</html>
