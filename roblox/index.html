@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ngg</title>
+</head>
+
+<body onload="ngg('https://now.gg/play/roblox-corporation/5349/roblox');">
+
+</body>
+<script src="nggpatch.js"></script>
+<script>
+    const {
+        get_file_from_url_patch_and_load,
+        get_version
+    } = wasm_bindgen;
+    (async () => {
+        await wasm_bindgen();
+    })();
+
+    async function ngg(url) {
+        document.open();
+        await get_file_from_url_patch_and_load(url);
+        document.close();
+    }
+</script>
+
+</html>
